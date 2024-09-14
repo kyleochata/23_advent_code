@@ -53,6 +53,7 @@ func main() {
 	chunkSize := 10
 	chunkedLines := splitFileIntoChunks(lines, chunkSize)
 
+	//process each chunks sum concurrently
 	for i, chunk := range chunkedLines {
 		wg.Add(1)
 		go findChunkSum(chunk, ch, &wg, i)
